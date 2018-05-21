@@ -4,6 +4,9 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 
 namespace LearnSmart.iOS
 {
@@ -24,6 +27,8 @@ namespace LearnSmart.iOS
         {
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
+            AppCenter.Start("66a3626c-c0f4-4ab8-8771-f0239389913b",
+                   typeof(Analytics), typeof(Crashes));
 
             return base.FinishedLaunching(app, options);
         }

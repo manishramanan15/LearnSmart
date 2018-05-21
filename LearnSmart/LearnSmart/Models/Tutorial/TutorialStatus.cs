@@ -15,7 +15,7 @@ namespace LearnSmart.Models.Tutorial
         public string TutorialName { get; set; }
 
         [DataMember(Name = "playedtime")]
-        public TimeSpan LastPayedTime { get; set; }
+        public string LastPayedTime { get; set; }
 
         [DataMember(Name = "lastaction")]
         public string LastAction { get; set; }

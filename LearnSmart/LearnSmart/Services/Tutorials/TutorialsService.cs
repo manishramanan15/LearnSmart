@@ -34,9 +34,9 @@ namespace LearnSmart.Services.Tutorials
 
         public async Task<TutorialStatus> SaveVideoStatus(TutorialStatus tutorialStatus)
         {
-            string uri = $"{AppSettings.VideoApiUrl}/user/{tutorialStatus.Id}";
+            string uri = $"{AppSettings.VideoApiUrl}/videos";
 
-            var response = await _requestProvider.PutAsync<TutorialStatus>(uri, tutorialStatus);
+            var response = await _requestProvider.PostAsync<TutorialStatus>(uri, tutorialStatus);
 
             return response;
         }

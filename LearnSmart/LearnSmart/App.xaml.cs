@@ -1,5 +1,6 @@
 using LearnSmart.Services.Navigation;
 using LearnSmart.ViewModels.Base;
+using Plugin.MediaManager.Forms;
 using System;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -16,6 +17,8 @@ namespace LearnSmart
 
             InitNavigation();
 
+            // Make sure it doesn't get stripped away by the linker
+            var workaround = typeof(VideoView);
         }
 
         private Task InitNavigation()

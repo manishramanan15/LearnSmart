@@ -27,7 +27,7 @@
 
             <video:UriVideoSource x:Key="ElephantsDream"
                                   Uri="https://ia800201.us.archive.org/12/items/BigBuckBunny_328/BigBuckBunny_512kb.mp4" />
-
+            
         </ResourceDictionary>
     </Application.Resources>
 </Application>
