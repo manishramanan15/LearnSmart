@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LearnSmart.Views.HomeView"
+             xmlns:controls="clr-namespace:LearnSmart.Controls.HorizontalList"
+             xmlns:templates="clr-namespace:LearnSmart.Views.Templates"
+             BackgroundColor="{StaticResource BackgroundColor}"
+             Title="Discover">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <Color x:Key="TitleColor">#5D6576</Color>
+
+            <Style x:Key="TitleStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource TitleColor}" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Text="Search">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="Android, iOS" Value="movies_search"/>
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <Grid>
+            <ScrollView   
+                IsVisible="{Binding IsBusy, Converter={StaticResource InverseBoolConverter}}"
+                BackgroundColor="{StaticResource BackgroundColor}">
+                <Grid
+				    RowSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="300" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <!-- HIGHLIGHT -->
+                    <templates:HomeMainItemTemplate 
+                        Grid.Row="0"/>
+                    <StackLayout
+                        Grid.Row="1">
+                        <!-- TOP TUTORIALS -->
+                        <Grid
+                            Margin="12">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="36" />
+                                <RowDefinition Height="300" />
+                            </Grid.RowDefinitions>
+                            <Label
+                                Grid.Row="0" 
+                                Text="TOP RATED TURORIALS"
+                                Style="{StaticResource TitleStyle}" />
+                            <controls:HorizontalList  
+                                Grid.Row="1"
+                                ListOrientation="Horizontal" 
+                                BackgroundColor="{StaticResource BackgroundColor}"
+                                ItemsSource="{Binding TopRatedTutorials}"      
+                                SelectedCommand="{Binding TutorialDetailCommand}">
+                                <controls:HorizontalList.ItemTemplate>
+                                    <DataTemplate>
+                                        <templates:TutorialItemTemplate />
+                                    </DataTemplate>
+                                </controls:HorizontalList.ItemTemplate>
+                            </controls:HorizontalList>
+                        </Grid>
+                    </StackLayout>
+                </Grid>
+            </ScrollView>
+            <ActivityIndicator
+                IsVisible="{Binding IsBusy}"
+                IsRunning="{Binding IsBusy}"
+                Color="{StaticResource AccentColor}"
+                BackgroundColor="{StaticResource BackgroundColor}"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
