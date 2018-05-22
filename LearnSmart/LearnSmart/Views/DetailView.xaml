@@ -81,7 +81,7 @@
 
             <forms:VideoView x:Name="videoView"
         Grid.Row="0" Grid.RowSpan="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
-                     AspectMode="AspectFill"/>
+                     AspectMode="AspectFill" />
 
             <Grid HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.RowSpan="1" Margin="20">
                 <Grid.RowDefinitions>

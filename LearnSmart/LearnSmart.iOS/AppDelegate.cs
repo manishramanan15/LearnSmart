@@ -7,6 +7,7 @@ using UIKit;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
+using Plugin.MediaManager.Forms.iOS;
 
 namespace LearnSmart.iOS
 {
@@ -29,7 +30,7 @@ namespace LearnSmart.iOS
             LoadApplication(new App());
             AppCenter.Start("66a3626c-c0f4-4ab8-8771-f0239389913b",
                    typeof(Analytics), typeof(Crashes));
-
+            VideoViewRenderer.Init();
             return base.FinishedLaunching(app, options);
         }
     }

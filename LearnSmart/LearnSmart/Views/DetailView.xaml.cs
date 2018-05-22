@@ -67,7 +67,6 @@ namespace LearnSmart.Views
 
         private void CurrentOnStatusChanged(object sender, StatusChangedEventArgs e)
         {
-            Debug.WriteLine($"MediaManager Status: {e.Status}");
             var item = new TutorialStatus()
             {
                 Id = string.Empty,
