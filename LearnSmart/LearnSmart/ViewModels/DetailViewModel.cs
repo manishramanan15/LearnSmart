@@ -73,7 +73,7 @@ namespace LearnSmart.ViewModels
                     var video = videos.Videos.First();
                     Video = string.Format("{0}{1}", AppSettings.YouTubeUrl, video.Key);
                 }
-
+                _video = "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4";
                 IsBusy = false;
             }
         }
